@@ -18,7 +18,13 @@ if (new_idx == NULL)
 	return (NULL);
 new_idx->n = number;
 new_idx->next = NULL;
-if ((*head)->n > new_idx->n)
+if ((*head) == NULL)
+{
+    new_idx->next = *head;
+    *head = new_idx;
+	return (*head);
+}
+else if ((*head)->n > new_idx->n)
 {
     new_idx->next = *head;
     *head = new_idx;
