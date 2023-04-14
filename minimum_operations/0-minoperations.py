@@ -2,8 +2,8 @@
 """  a method that calculates the fewest number of operations needed
 to result in exactly n H characters in the file. """
 
-def minOperations(n):
 
+def minOperations(n):
 
     a = 2
     b = 0
