@@ -14,6 +14,7 @@ if __name__ == "__main__":
     s = 0
     v = 1
     def print_s():
+
         """printing the stats"""
         print("File size: {}".format(s))
         for j in sorted(st_file.keys()):
