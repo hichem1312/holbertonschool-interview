@@ -41,7 +41,7 @@ int slide_line(int *line, size_t size, int direction){
 		new_line[j] = x;
 		for (i = size - 2; i >= 0; i--){
 			if (line[i] == x && line[i] != 0){
-				newline[j] = x * 2;
+				new_line[j] = x * 2;
 				x = 0;
 				j--;
 			}
