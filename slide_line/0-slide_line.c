@@ -1,106 +1,65 @@
 #include "slide_line.h"
-#define LINE_SIZE   32
 /**
-*left_direction -  a function that slides and merges an array of integers
-*@line: pointer
-*@size: size of array
-**/
-void left_direction(int *line, size_t size)
-{
-size_t a = 0, b, i;
-int j, k = 0;
-int T[LINE_SIZE], T1[LINE_SIZE];
-for (i = 0; i < size; i++)
-{
-	if (line[i] != 0)
-	{
-		T[k] = line[i];
-		k++;
+ * slide_line - a function that slides and merges an array of integers
+ * @line: a line
+ * @size: size of array
+ * @direction: direction
+ * Return: 1 or 0
+*/
+int slide_line(int *line, size_t size, int direction){
+
+	int a = size, i = 0, j = 0, x;
+	int new_line[32];
+
+
+	for (i = 0; i < 32; i++)
+		new_line[i] = 0;
+	if (direction == SLIDE_LEFT){
+		x = line[0];
+		j = 0;
+		new_line[j] = x;
+		for (i = 1; i < a; i++){
+			if (line[i] == x && line[i] != 0){
+				new_line[j] = x * 2;
+				x = 0;
+				j++;
+			}
+			else if (line[i] != 0 && 0 != new_line[j]){
+				j++;
+				x = line[i];
+				new_line[j] = x;
+			}
+			else if (line[i] != 0){
+				x = line[i];
+				new_line[j] = x;
+			}
+		}
 	}
-}
-for (j = 0; j < k; j += 1)
-{
-	if (T[j] == T[j + 1])
-	{
-		T1[a] = T[j] * 2;
-		j++;
-		a++;
-	}
-	else
-	{
-		T1[a] = T[j];
-		a++;
-	}
-}
-for (b = 0; b < size; b++)
-{
-	if (b < a)
-		line[b] = T1[b];
-	else
-		line[b] = 0;
-}
-}
-/**
-*right_direction -  a function that slides and merges an array of integers
-*@line: a pointer
-*@size: size of array
-**/
-void right_direction(int *line, size_t size)
-{
-size_t  a = 0, v = 0;
-int k = 0, j, b, i;
-int T[LINE_SIZE], T1[LINE_SIZE];
-for (i = size - 1; i > -1; i--)
-{
-	if (line[i] != 0)
-	{
-		T[k] = line[i];
-		k++;
-	}
-}
-for (j = 0; j < k; j += 1)
-{
-	if (T[j] == T[j + 1])
-	{
-		T1[a] = T[j] * 2;
-		j++;
-		i++;
+	else if (direction == SLIDE_RIGHT){
+		x = line[size - 1];
+		j = size - 1;
+		new_line[j] = x;
+		for (i = size - 2; i >= 0; i--){
+			if (line[i] == x && line[i] != 0){
+				newline[j] = x * 2;
+				x = 0;
+				j--;
+			}
+			else if (line[i] != 0 && 0 != new_line[j]){
+				j--;
+				x = line[i];
+				new_line[j] = x;
+			}
+			else if (line[i] != 0){
+				x = line[i];
+				new_line[j] = x;
+			}
+		}
 	}
 	else
-	{
-		T1[i] = T[j];
-		i++;
+		return (0);
+	for (i = 0; i < a; i++){
+		line[i] = new_line[i];
 	}
-}
-for (b = size - 1; b > -1; b--)
-{
-	if (v < a)
-	{
-		line[b] = T1[v];
-		v++;
-	}
-	else
-		line[b] = 0;
-}
-}
-/**
-*slide_line -  a function that slides and merges an array of integers
-*@line: pointer
-*@size: size of array
-*@direction: the direction
-*Return: 1
-**/
-int slide_line(int *line, size_t size, int direction)
-{
-if (direction == SLIDE_LEFT)
-{
-	left_direction(line, size);
 	return (1);
-}
-else if (direction == SLIDE_RIGHT)
-{
-	right_direction(line, size);
-	return (1);
-}
-return (0);
 }
