@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""rotate a given n x n 2D matrix"""
+"""
+rotate a given n x n 2D matrix
+"""
+
 
 def rotate_2d_matrix(matrix):
     N = len(matrix)
