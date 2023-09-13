@@ -11,7 +11,7 @@ void merge_sort(int *array, size_t size)
 
 	if (tmp == NULL)
 		return;
-    
+
     merge(array, size, tmp);
     free(tmp);
 }
