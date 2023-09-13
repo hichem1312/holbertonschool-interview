@@ -7,20 +7,32 @@
  */
 void merge_sort(int *array, size_t size)
 {
+    int *tmp = malloc(size * sizeof(int));
+
+	if (tmp == NULL)
+		return;
+    
+    merge(array, size, tmp);
+    free(tmp);
+}
+
+/**
+ * merge - merge function
+ * @array: array to merge
+ * @size: size of the array
+ * @tmp:temp
+ */
+void merge(int *array, size_t size, int *tmp)
+{
     size_t left_side = size / 2, right_side = size - left_side;
 	size_t v = 0, i = 0, j = 0;
-	int *tmp_array = array + left_side;
+    int *tmp_array = array + left_side;
 
-	if (size <= 1)
+    if (size <= 1)
 		return;
 
-	merge_sort(array, left_side);
-	merge_sort(tmp_array, right_side);
-
-    int *tmp = malloc(size * sizeof(int));
-    
-    if (tmp == NULL)
-		return;
+	merge(array, left_side, tmp);
+	merge(tmp_array, right_side, tmp);
 
 	for (i = 0; i < left_side; i++)
 		tmp[i] = array[i];
@@ -42,5 +54,4 @@ void merge_sort(int *array, size_t size)
 
 	printf("[Done]: ");
 	print_array(array, size);
-    free(tmp);
 }
