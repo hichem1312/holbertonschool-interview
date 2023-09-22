@@ -3,21 +3,21 @@
 
 
 def makeChange(coins, total):
-	"""makechange"""
-	if total <= 0:
-		return 0
+    """function"""
+    if total <= 0:
+        return 0
 
-	coins = sorted(coins, reverse=True)
-	i = 0
+    coins = sorted(coins, reverse=True)
+    i = 0
 
-	while total != 0 and coins:
-		while coins[0] <= total:
-			total -= coins[0]
-			i += 1
+    while total != 0 and coins:
+        while coins[0] <= total:
+            total -= coins[0]
+            i += 1
 
-		coins.pop(0)
+        coins.pop(0)
 
-	if total != 0:
-		return -1
-	else:
-		return i
+    if total != 0:
+        return -1
+    else:
+        return i
