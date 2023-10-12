@@ -8,7 +8,7 @@
 
 void radix_sort(int *array, size_t size)
 {
-	int count[1000], A[1000][1000], i = 0, j = 0, x = 0, y = 0, k = 0, q = 0;
+	int count[10], A[1000][1000], i = 0, j = 0, x = 0, y = 0, k = 0, q = 0;
 	int max_digit = array[0], max = 0, digits = 0, div = 1;
 
 	if (size < 2)
