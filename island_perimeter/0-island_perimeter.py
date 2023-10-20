@@ -5,7 +5,7 @@ a function that returns the perimeter of the island described
 
 
 def island_perimeter(grid):
-   
+	"""island perimeter function"""
 	if not grid:
 		return 0
 
