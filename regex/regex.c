@@ -20,7 +20,7 @@ int regex_match(char const *str, char const *pattern)
 		}
 		else
 		{
-			return regex_match(str, pattern + 2);
+			return (regex_match(str, pattern + 2));
 		}
 	}
 	return ((*pattern == '.' || *pattern == *str)
