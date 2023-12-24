@@ -24,9 +24,9 @@ void siftdown(int *array, size_t size, size_t i, size_t end)
 
 	if (max != i)
 	{
-        aux = array[i];
-        array[i] = array[max];
-        array[max] = aux;
+		aux = array[i];
+		array[i] = array[max];
+		array[max] = aux;
 		print_array(array, end);
 		siftdown(array, size, max, end);
 	}
@@ -48,9 +48,9 @@ void heap_sort(int *array, size_t size)
 			siftdown(array, size, i, end);
 		for (i = size - 1; i > 0; i--)
 		{
-            aux = array[i];
-            array[i] = array[0];
-            array[0] = aux;
+			aux = array[i];
+			array[i] = array[0];
+			array[0] = aux;
 			print_array(array, size);
 			siftdown(array, i, 0, end);
 		}
